@@ -36,15 +36,16 @@ namespace MultiplayerTetris.Tetris
                 }
             }
             if (lines.Count > 0)
-                this.line(lines);
+            {
+                this.linesUpdate(lines.Count);
+                board.lines(lines);
+            }
         }
 
-        private void line(List<int> rows)
+        private void linesUpdate(int rows)
         {
-            this.points += linesToPoints[rows.Count - 1]*(level+1);
-            this.lines += rows.Count;
-
+            this.points += linesToPoints[rows - 1] * (level + 1);
+            this.lines += rows;
         }
-
     }
 }

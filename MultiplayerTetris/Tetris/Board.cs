@@ -11,6 +11,7 @@ namespace MultiplayerTetris.Tetris
         private int[,] board;
         private int rows;
         private int cols;
+        private int highest = 0;//records tallest row
 
         public Board(int rows, int cols)
         {
@@ -46,6 +47,20 @@ namespace MultiplayerTetris.Tetris
                 return this.board[row, col];
             else
                 throw new System.IndexOutOfRangeException("Board.getPosition("+row.ToString()+","+col.ToString()+") index out of bounds");
+        }
+
+        public void lines(List<int> lines)
+        {
+            //para mejorar el rendimiento podemos partir desde el row mas chico... por como esta construido lines la mas chica esta al final
+            int displacement = 0;
+            for (int i = lines[lines.Count-1]; i <= highest; i++)
+            {
+                if (lines.Contains(i))
+                    displacement++;
+                else
+                    for (int col = 0; col < cols; col++)
+                        board[i - displacement, col] = board[i, col];
+            }
         }
     }
 }

@@ -10,10 +10,9 @@ namespace MultiplayerTetris
     class Piece
     {
         static enum PIECES {I=1,J,L,O,S,T,Z};
-
+        static enum COLORS {cyan,blueviolet,magenta,lightgrey,green,yellow,red};
         private int rot = 0;
         private int[,,] piece; // rotation, piece
-        private string color;
         private int x; //top left column
         private int y; //top left row
 
