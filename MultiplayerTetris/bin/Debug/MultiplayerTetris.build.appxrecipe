@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>CHUNCHO</Machine>
+    <WindowsUser>dnshe_000</WindowsUser>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\MultiplayerTetris.exe">
+      <PackagePath>MultiplayerTetris.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\MultiplayerTetris.pdb">
+      <PackagePath>MultiplayerTetris.pdb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Logo.png">
+      <PackagePath>Assets\Logo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\SmallLogo.png">
+      <PackagePath>Assets\SmallLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\SplashScreen.png">
+      <PackagePath>Assets\SplashScreen.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\StoreLogo.png">
+      <PackagePath>Assets\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Common\ReadMe.txt">
+      <PackagePath>Common\ReadMe.txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\App.xaml">
+      <PackagePath>App.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\Common\StandardStyles.xaml">
+      <PackagePath>Common\StandardStyles.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\MainPage.xaml">
+      <PackagePath>MainPage.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\TetrisMultiPlayer.xaml">
+      <PackagePath>TetrisMultiPlayer.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\TetrisSinglePlayer.xaml">
+      <PackagePath>TetrisSinglePlayer.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
