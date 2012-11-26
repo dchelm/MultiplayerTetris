@@ -35,7 +35,7 @@
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="Tetris" Style="{StaticResource PageHeaderTextStyle}"/>
-            <TextBlock x:Name="pageTitle_Copy" Grid.Column="1" Text="Twin gaming" Style="{StaticResource PageHeaderTextStyle}" Margin="927,0,19,-607"/>
+            <TextBlock x:Name="pageTitle_Copy" Grid.Column="1" Text="Twin gaming" Style="{StaticResource PageHeaderTextStyle}" Margin="833,0,113,-599"/>
         </Grid>
         <Button Content="Single Player&#xD;&#xA;" HorizontalAlignment="center" Margin="0,450,0,0" Grid.Row="1" VerticalAlignment="Top" Width="471" Height="38" Click="Button_Click_1"/>
         <Button Content="Multi Player&#xA;" HorizontalAlignment="center" Margin="0,500,0,0" Grid.Row="1" VerticalAlignment="Top" Width="471" Height="38" Click="Button_Click_2"/>

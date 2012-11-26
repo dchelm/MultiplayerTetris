@@ -21,6 +21,9 @@ namespace MultiplayerTetris
     /// </summary>
     public sealed partial class TetrisSinglePlayer : MultiplayerTetris.Common.LayoutAwarePage
     {
+        DispatcherTimer timer;
+        Tetris.SPGameController gc;
+        int state = 0; //0 = pageLoad... 1= paused... 2 = playing...3 = ended
 
         public TetrisSinglePlayer()
         {
@@ -52,26 +55,33 @@ namespace MultiplayerTetris
 
         private void Grid_PointerPressed_1(object sender, PointerRoutedEventArgs e)
         {
-
+            if (state == 0)
+            {
+                state = 2;
+                timer.Start();
+                ((TextBlock)this.FindName("clickToStart")).Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
         }
 
-        private void Grid_KeyDown_1(object sender, KeyRoutedEventArgs e)
+        private void pageRoot_Loaded(object sender, RoutedEventArgs e)
         {
-            switch (e.Key)
-            {
-                case Windows.System.VirtualKey.Space:
-                    break;
-                case Windows.System.VirtualKey.Up:
-                    break;
-                case Windows.System.VirtualKey.Down:
-                    break;
-                case Windows.System.VirtualKey.Left:
-                    break;
-                case Windows.System.VirtualKey.Right:
-                    break;
-                case Windows.System.VirtualKey.Shift:
-                    break;
-            }
+            gc = new Tetris.SPGameController((Canvas)this.FindName("canvasBoard"));
+            
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(100);
+            timer.Tick += timer_Tick;
+            Window.Current.Content.AddHandler(UIElement.KeyDownEvent, new KeyEventHandler(keyDownHandler), true);
+        }
+
+
+        void keyDownHandler(object sender, KeyRoutedEventArgs e)
+        {
+            gc.key(e.Key);
+        }
+        void timer_Tick(object sender, object e)
+        {
+            if(state==2)
+                gc.tick();
         }
     }
 }

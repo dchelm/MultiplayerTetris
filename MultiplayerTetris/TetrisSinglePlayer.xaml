@@ -8,7 +8,7 @@
     xmlns:common="using:MultiplayerTetris.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Loaded="pageRoot_Loaded">
 
     <Page.Resources>
 
@@ -21,7 +21,7 @@
         * Row 0 contains the back button and page title
         * Row 1 contains the rest of the page layout
     -->
-    <Grid Style="{StaticResource LayoutRootStyle}" PointerPressed="poi">
+    <Grid Style="{StaticResource LayoutRootStyle}" PointerPressed="Grid_PointerPressed_1">
         <Grid.RowDefinitions>
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
@@ -44,9 +44,9 @@
         <TextBlock HorizontalAlignment="Left" Margin="755,130,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Lines" VerticalAlignment="Top" Height="32" Width="94" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="755,170,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Points" VerticalAlignment="Top" Height="32" Width="94" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="755,210,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Next Piece" VerticalAlignment="Top" Height="32" Width="94" FontSize="20"/>
-        <Canvas HorizontalAlignment="Left" Height="513" Margin="166,56,0,0" Grid.Row="1" VerticalAlignment="Top" Width="387">
-            <TextBlock Canvas.Left="420" TextWrapping="Wrap" Text="Click anywhere to start" Canvas.Top="411" Height="146" Width="780" FontSize="72" Foreground="#FFF34141"/>
-        </Canvas>
+        <TextBlock Name="clickToStart" Canvas.Left="420" TextWrapping="Wrap" Text="Click anywhere to start" Canvas.Top="411" Height="146" Width="780" FontSize="72" Foreground="#FFF34141" Margin="548,464,38,18" Grid.Row="1"/>
+        <Canvas x:Name="canvasBoard" HorizontalAlignment="Left" Height="600" Margin="116,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="300" Background="White"/>
+
 
         <VisualStateManager.VisualStateGroups>
 
