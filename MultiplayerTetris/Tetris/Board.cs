@@ -83,7 +83,7 @@ namespace MultiplayerTetris.Tetris
         {
             //para mejorar el rendimiento podemos partir desde el row mas chico... por como esta construido lines la mas chica esta al final
             int displacement = 1;
-            for (int i = lines[lines.Count-1]-1; i >= highest-1; i--)
+            for (int i = lines[lines.Count-1]-1; i >= 0; i--)
             {
                 if (lines.Contains(i))
                     displacement++;
