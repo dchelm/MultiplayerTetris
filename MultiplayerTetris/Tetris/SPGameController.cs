@@ -34,20 +34,26 @@ namespace MultiplayerTetris.Tetris
         private int multiplier = 0;
         private Board board;
         private Piece p;
+        private Piece nextP;
         private Random ran = new Random();
 
         private int ticks = 0;
         private int[] ticksPerLevel = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
         private Canvas canvas;
+        private Canvas canvas2;
         private MultiplayerTetris.TetrisSinglePlayer tsp;
 
 
-        public    SPGameController(Canvas canvas,MultiplayerTetris.TetrisSinglePlayer tsp)
+        public    SPGameController(MultiplayerTetris.TetrisSinglePlayer tsp)
         {
             this.tsp = tsp;
-            this.canvas = canvas;
+            this.canvas = (Canvas)tsp.FindName("canvasBoard");
+            this.canvas2 = (Canvas)tsp.FindName("nextPieceCanvas");
             this.board = new Board(rows, cols);
             p = new Piece(ran.Next(0,7),0,4);
+            nextP = new Piece(ran.Next(0, 7), 0, 4);
+            this.drawNext();
+
         }
 
         //cuando una piesa cae.. antes de chequear lineas hay que agregarla al mapa :).. 
@@ -78,6 +84,9 @@ namespace MultiplayerTetris.Tetris
         {
             this.points += linesToPoints[rows - 1] * (level + 1);
             this.lines += rows;
+            ((TextBlock)tsp.FindName("levelText")).Text = "level 0";
+            ((TextBlock)tsp.FindName("linesText")).Text = "level "+lines.ToString();
+            ((TextBlock)tsp.FindName("pointsText")).Text = "level " + points.ToString();
         }
 
         public void key(Windows.System.VirtualKey e)
@@ -135,8 +144,8 @@ namespace MultiplayerTetris.Tetris
             if(ticks>= ticksPerLevel[level])
             {
                 ticks = 0;
-                this.draw();
                 this.update();
+                this.draw();
             }
         }
 
@@ -144,7 +153,7 @@ namespace MultiplayerTetris.Tetris
         {
             this.drawBoard();
             this.drawPiece(this.board.projection(p), true);
-            this.drawPiece(p, false);
+            this.drawPiece(p,false);
         }
 
         private void update()
@@ -161,7 +170,10 @@ namespace MultiplayerTetris.Tetris
                     tsp.gameOver();
                 }
                 this.checkLines(p.getRow());
-                this.p = new Piece(ran.Next(0, 7), 0, 4);
+                this.p = nextP;
+                this.nextP = new Piece(ran.Next(0, 7), 0, 4);
+                this.drawNext();
+
             }else
                 p.moveDown();
         }
@@ -213,6 +225,30 @@ namespace MultiplayerTetris.Tetris
                             r.Fill = scb;
                         r.Margin = new Thickness(30 * col, 30 * row, 0, 0);
                         canvas.Children.Add(r);
+                    }
+                }
+        }
+
+        private void drawNext()
+        {
+            canvas2.Children.Clear();
+            for (int i = 0; i < 4; i++)
+                for (int j = 0; j < 4; j++)
+                {
+                    int type = nextP.type;
+                    if (nextP.getPiece()[i, j] == 1)
+                    {
+                        int col =j;
+                        int row =i;
+                        ImageBrush imgBrush = new ImageBrush();
+                        BitmapImage image = new BitmapImage(uris[type]);
+                        imgBrush.ImageSource = image;
+                        Rectangle r = new Rectangle();
+                        r.Height = 30;
+                        r.Width = 30;
+                        r.Fill = imgBrush;
+                        r.Margin = new Thickness(30 * col, 30 * row, 0, 0);
+                        canvas2.Children.Add(r);
                     }
                 }
         }

@@ -22,11 +22,11 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\MultiplayerTetris.exe">
       <PackagePath>MultiplayerTetris.exe</PackagePath>
-      <Modified>2012-11-26T03:07:39.859</Modified>
+      <Modified>2012-11-26T03:39:20.209</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\MultiplayerTetris.pdb">
       <PackagePath>MultiplayerTetris.pdb</PackagePath>
-      <Modified>2012-11-26T03:07:39.839</Modified>
+      <Modified>2012-11-26T03:39:20.134</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\Blocks.png">
       <PackagePath>Assets\Blocks\Blocks.png</PackagePath>
@@ -110,7 +110,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\TetrisSinglePlayer.xaml">
       <PackagePath>TetrisSinglePlayer.xaml</PackagePath>
-      <Modified>2012-11-26T01:59:14.985</Modified>
+      <Modified>2012-11-26T03:36:18.822</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>

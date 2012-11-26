@@ -65,7 +65,7 @@ namespace MultiplayerTetris
 
         private void pageRoot_Loaded(object sender, RoutedEventArgs e)
         {
-            gc = new Tetris.SPGameController((Canvas)this.FindName("canvasBoard"),this);
+            gc = new Tetris.SPGameController(this);
             
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(100);
