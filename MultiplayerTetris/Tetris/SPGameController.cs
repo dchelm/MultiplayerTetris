@@ -15,15 +15,15 @@ namespace MultiplayerTetris.Tetris
     class SPGameController
     {
         private Uri[] uris = {
-                                 new Uri("ms-appx:\\Assets\\Blocks\\BlueBlock.png"),
-                                 new Uri("ms-appx:\\Assets\\Blocks\\BrownBlock.png"),
-                                 new Uri("ms-appx:\\Assets\\Blocks\\CyanBlock.png"),
-                                 new Uri("ms-appx:\\Assets\\Blocks\\DarkBlueBlock.png"),
-                                 new Uri("ms-appx:\\Assets\\Blocks\\GreenBlock.png"),
-                                 new Uri("ms-appx:\\Assets\\Blocks\\OrangeBlock.png"),
-                                 new Uri("ms-appx:\\Assets\\Blocks\\PinkBlock.png"),
-                                 new Uri("ms-appx:\\Assets\\Blocks\\RedBlock.png"),
-                                 new Uri("ms-appx:\\Assets\\Blocks\\YellowBlock.png"),
+                                 new Uri("ms-appx:///Assets/Blocks/BlueBlock.png"),
+                                 new Uri("ms-appx:///Assets/Blocks/BrownBlock.png"),
+                                 new Uri("ms-appx:///Assets/Blocks/CyanBlock.png"),
+                                 new Uri("ms-appx:///Assets/Blocks/DarkBlueBlock.png"),
+                                 new Uri("ms-appx:///Assets/Blocks/GreenBlock.png"),
+                                 new Uri("ms-appx:///Assets/Blocks/OrangeBlock.png"),
+                                 new Uri("ms-appx:///Assets/Blocks/PinkBlock.png"),
+                                 new Uri("ms-appx:///Assets/Blocks/RedBlock.png"),
+                                 new Uri("ms-appx:///Assets/Blocks/YellowBlock.png"),
                              };
         private int[] linesToPoints = { 100, 300, 500, 800 };
         private int level = 0;
@@ -85,6 +85,8 @@ namespace MultiplayerTetris.Tetris
             switch (e)
             {
                 case Windows.System.VirtualKey.Space:
+                    p = this.board.projection(p);
+                    this.moveDown();
                     break;
                 case Windows.System.VirtualKey.Up:
                     p.rotate_right();
@@ -121,7 +123,8 @@ namespace MultiplayerTetris.Tetris
         private void draw()
         {
             this.drawBoard();
-            this.drawPiece(p);
+            this.drawPiece(this.board.projection(p), true);
+            this.drawPiece(p, false);
         }
 
         private void update()
@@ -155,18 +158,19 @@ namespace MultiplayerTetris.Tetris
                     if (type != -1)
                     {
                         ImageBrush imgBrush = new ImageBrush();
-                        imgBrush.ImageSource = new BitmapImage(uris[type]);
+                        BitmapImage image = new BitmapImage(uris[type]);
+                        imgBrush.ImageSource = image;
                         Rectangle r = new Rectangle();
                         r.Height = 30;
                         r.Width = 30;
-                        r.Fill = scb;
+                        r.Fill = imgBrush;
                         r.Margin = new Thickness(30 * col, 30 * row, 0, 0);
                         canvas.Children.Add(r);
                     }
                 }
         }
 
-        private void drawPiece(Piece p)
+        private void drawPiece(Piece p,bool projection)
         {
             SolidColorBrush scb = new SolidColorBrush(Color.FromArgb(255, 255, 13, 123));
             //draw piece
@@ -179,11 +183,15 @@ namespace MultiplayerTetris.Tetris
                         int col = p.getCol() + j;
                         int row = p.getRow() + i;
                         ImageBrush imgBrush = new ImageBrush();
-                        imgBrush.ImageSource = new BitmapImage(uris[type]);
+                        BitmapImage image = new BitmapImage(uris[type]);
+                        imgBrush.ImageSource = image;
                         Rectangle r = new Rectangle();
                         r.Height = 30;
                         r.Width = 30;
-                        r.Fill = scb;
+                        if (!projection)
+                            r.Fill = imgBrush;
+                        else
+                            r.Fill = scb;
                         r.Margin = new Thickness(30 * col, 30 * row, 0, 0);
                         canvas.Children.Add(r);
                     }

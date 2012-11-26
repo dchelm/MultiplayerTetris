@@ -117,5 +117,15 @@ namespace MultiplayerTetris
         {
             row++;
         }
+
+        public int getRot()
+        {
+            return rot;
+        }
+
+        public void setRot(int rot)
+        {
+            this.rot = rot;
+        }
     }
 }

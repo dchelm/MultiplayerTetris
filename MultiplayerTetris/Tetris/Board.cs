@@ -96,10 +96,14 @@ namespace MultiplayerTetris.Tetris
 
         public Piece projection(Piece p)
         {
-            for (int i = p.getRow()+1; i > 2; i--)
+            for (int i = p.getRow()+1; i <rows ; i++)
             {
-                if (this.intersects(p, 0, p.getRow() + i))
-                    return new Piece(p.type, p.getRow() + i,p.getCol());
+                if (this.intersects(p, 0, i-p.getRow()))
+                {
+                    Piece aux = new Piece(p.type,i - 1, p.getCol());
+                    aux.setRot(p.getRot());
+                    return aux;
+                }
             }
             return new Piece(p.type, 3, p.getRow());
         }
