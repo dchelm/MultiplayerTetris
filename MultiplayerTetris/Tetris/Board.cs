@@ -47,7 +47,7 @@ namespace MultiplayerTetris.Tetris
             return false;
         }
 
-        public void addPiece(Piece p)
+        public bool addPiece(Piece p)
         {
             for (int i = 0; i < 4; i++)
             {
@@ -59,7 +59,7 @@ namespace MultiplayerTetris.Tetris
                     if (filled)
                         if (row < rows && row >= 0 && col < cols && col >= 0)
                             if (board[row, col] != -1)
-                                throw new System.InvalidOperationException("Board.addPiece() The piece can't be added.. there was a piece there before ");
+                                return false;
                             else
                             {
                                 board[row, col] = p.type;
@@ -68,6 +68,7 @@ namespace MultiplayerTetris.Tetris
                             }
                 }
             }
+            return true;
         }
 
         public int getPosition(int row,int col)
@@ -81,8 +82,8 @@ namespace MultiplayerTetris.Tetris
         public void lines(List<int> lines)
         {
             //para mejorar el rendimiento podemos partir desde el row mas chico... por como esta construido lines la mas chica esta al final
-            int displacement = 0;
-            for (int i = lines[lines.Count-1]; i >= highest-1; i--)
+            int displacement = 1;
+            for (int i = lines[lines.Count-1]-1; i >= highest-1; i--)
             {
                 if (lines.Contains(i))
                     displacement++;

@@ -39,10 +39,12 @@ namespace MultiplayerTetris.Tetris
         private int ticks = 0;
         private int[] ticksPerLevel = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
         private Canvas canvas;
+        private MultiplayerTetris.TetrisSinglePlayer tsp;
 
 
-        public    SPGameController(Canvas canvas)
+        public    SPGameController(Canvas canvas,MultiplayerTetris.TetrisSinglePlayer tsp)
         {
+            this.tsp = tsp;
             this.canvas = canvas;
             this.board = new Board(rows, cols);
             p = new Piece(ran.Next(0,7),0,4);
@@ -131,7 +133,10 @@ namespace MultiplayerTetris.Tetris
         {
             if (board.intersects(p,0,1))
             {
-                board.addPiece(p);
+                if (!board.addPiece(p))//game over
+                {
+                    tsp.gameOver();
+                }
                 this.checkLines(p.getRow());
                 this.p = new Piece(ran.Next(0, 7), 0, 4);
             }else

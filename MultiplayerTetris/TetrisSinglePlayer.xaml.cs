@@ -65,18 +65,23 @@ namespace MultiplayerTetris
 
         private void pageRoot_Loaded(object sender, RoutedEventArgs e)
         {
-            gc = new Tetris.SPGameController((Canvas)this.FindName("canvasBoard"));
+            gc = new Tetris.SPGameController((Canvas)this.FindName("canvasBoard"),this);
             
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(100);
             timer.Tick += timer_Tick;
             Window.Current.Content.AddHandler(UIElement.KeyDownEvent, new KeyEventHandler(keyDownHandler), true);
         }
-
+        public void gameOver()
+        {
+            this.state = 3;
+            ((TextBlock)this.FindName("gameOverText")).Visibility = Windows.UI.Xaml.Visibility.Visible;
+        }
 
         void keyDownHandler(object sender, KeyRoutedEventArgs e)
         {
-            gc.key(e.Key);
+            if(state==2)
+                gc.key(e.Key);
         }
         void timer_Tick(object sender, object e)
         {
