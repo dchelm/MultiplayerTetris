@@ -90,6 +90,26 @@ namespace MultiplayerTetris.Tetris
                     break;
                 case Windows.System.VirtualKey.Up:
                     p.rotate_right();
+                    if (this.board.intersects(p, 0, 0))//choca despues de intersectar
+                    {
+                        if (!this.board.intersects(p, -1, 0))
+                        {
+                            p.moveLeft();
+                            break;
+                        }
+                        else if (!this.board.intersects(p, 1, 0))
+                        {
+                            p.moveRight();
+                            break;
+                        }
+                        else if (!this.board.intersects(p, 2, 0))
+                        {
+                            p.moveRight();
+                            p.moveRight();
+                            break;
+                        }
+                        p.rotate_left();
+                    }
                     break;
                 case Windows.System.VirtualKey.Down:
                     this.moveDown();
@@ -148,7 +168,6 @@ namespace MultiplayerTetris.Tetris
 
         private void drawBoard()
         {
-            SolidColorBrush scb = new SolidColorBrush(Color.FromArgb(255, 123, 123, 123));
             canvas.Children.Clear();
             //draw map
             for(int row = 0;row<rows;row++)
@@ -172,7 +191,7 @@ namespace MultiplayerTetris.Tetris
 
         private void drawPiece(Piece p,bool projection)
         {
-            SolidColorBrush scb = new SolidColorBrush(Color.FromArgb(255, 255, 13, 123));
+            SolidColorBrush scb = new SolidColorBrush(Color.FromArgb(40, 0, 0, 0));
             //draw piece
             for (int i = 0; i < 4; i++)
                 for (int j = 0; j < 4; j++)
