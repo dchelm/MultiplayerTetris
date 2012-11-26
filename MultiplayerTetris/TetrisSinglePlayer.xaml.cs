@@ -66,7 +66,8 @@ namespace MultiplayerTetris
         private void pageRoot_Loaded(object sender, RoutedEventArgs e)
         {
             gc = new Tetris.SPGameController(this);
-            
+
+            ((Button)this.FindName("drop")).Focus(Windows.UI.Xaml.FocusState.Programmatic);
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(100);
             timer.Tick += timer_Tick;
@@ -82,11 +83,48 @@ namespace MultiplayerTetris
         {
             if(state==2)
                 gc.key(e.Key);
+            else if (state == 0)
+            {
+                state = 2;
+                timer.Start();
+                ((TextBlock)this.FindName("clickToStart")).Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
         }
         void timer_Tick(object sender, object e)
         {
             if(state==2)
                 gc.tick();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ((Button)this.FindName("drop")).Focus(Windows.UI.Xaml.FocusState.Programmatic);
+            if (state == 3)
+            {
+                ((Button)this.FindName("pauseButton")).Content = "Pause";
+                state = 2;
+            } else if (state == 2)
+            {
+                ((Button)this.FindName("pauseButton")).Content = "Resume";
+                state = 3;
+            }
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            ((Button)this.FindName("drop")).Focus(Windows.UI.Xaml.FocusState.Programmatic);
+            gc = new Tetris.SPGameController(this);
+            state = 0;
+            ((TextBlock)this.FindName("gameOverText")).Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            ((TextBlock)this.FindName("clickToStart")).Visibility = Windows.UI.Xaml.Visibility.Visible;
+        }
+
+        private void drop_Click(object sender, RoutedEventArgs e)
+        {
+            if (state == 2)
+                gc.key(Windows.System.VirtualKey.Down);
+        }
+
     }
 }

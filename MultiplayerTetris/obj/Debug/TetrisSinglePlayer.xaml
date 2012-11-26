@@ -33,20 +33,28 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:ConnectionId='3' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
-            <TextBlock x:Name="pageTitle" Grid.Column="1" Style="{StaticResource PageHeaderTextStyle}">
+            <Button x:ConnectionId='4' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
+            <TextBlock x:Name="pageTitle" Grid.Column="1" Style="{StaticResource PageHeaderTextStyle}" Margin="0,0,923,40">
             	<Run Text="Single Player"/>
             	<LineBreak/>
             	<Run/>
             </TextBlock>
+            <Button x:ConnectionId='5' Name="pauseButton" Content="Pause" Grid.Column="1" HorizontalAlignment="Left" Margin="976,10,0,0" VerticalAlignment="Top" Height="120" Width="116"                       />
+            <Button x:ConnectionId='6' Name="restartButton" Content="Restart" Grid.Column="1" HorizontalAlignment="Left" Margin="1097,10,0,0" VerticalAlignment="Top" Height="120" Width="116"                       />
         </Grid>
-        <TextBlock Name="levelText" HorizontalAlignment="Left" Margin="975,59,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Level " VerticalAlignment="Top" Height="32" Width="298" FontSize="20"/>
-        <TextBlock Name="linesText" HorizontalAlignment="Left" Margin="975,99,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Lines" VerticalAlignment="Top" Height="32" Width="298" FontSize="20"/>
-        <TextBlock Name="pointsText" HorizontalAlignment="Left" Margin="975,139,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Points" VerticalAlignment="Top" Height="32" Width="298" FontSize="20"/>
-        <TextBlock Name="clickToStart" Canvas.Left="420" TextWrapping="Wrap" Text="Click anywhere to start" Canvas.Top="411" Height="146" Width="780" FontSize="72" Foreground="#FFF34141" Margin="548,464,38,18" Grid.Row="1"/>
-        <Canvas x:Name="canvasBoard" HorizontalAlignment="Left" Height="600" Margin="116,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="300" Background="White"/>
+
+        <Canvas Name="gameRegion" HorizontalAlignment="Center" Height="631" Margin="447,69,330,68" Width="589" Grid.RowSpan="2" VerticalAlignment="Center" Background="#FF3E3E3E">
+            <Canvas x:Name="canvasBoard" HorizontalAlignment="Left" Height="600" Grid.Row="1" VerticalAlignment="Top" Width="300" Background="White" Canvas.Left="11" Canvas.Top="10"/>
+            <Canvas Name="nextPieceCanvas" HorizontalAlignment="Left" Height="80" Grid.Row="1" VerticalAlignment="Top" Width="140" Canvas.Left="336" Canvas.Top="10"/>
+            <TextBlock Name="levelText" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Text="Level " VerticalAlignment="Top" Height="32" Width="230" FontSize="20" Canvas.Left="336" Canvas.Top="152"/>
+            <TextBlock Name="linesText" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Text="Lines" VerticalAlignment="Top" Height="32" Width="230" FontSize="20" Canvas.Left="336" Canvas.Top="192"/>
+            <TextBlock Name="pointsText" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Text="Points" VerticalAlignment="Top" Height="32" Width="230" FontSize="20" Canvas.Left="336" Canvas.Top="232"/>
+            <Button x:ConnectionId='3' Name="drop" Content="Drop" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="74" Height="72"                    Canvas.Left="336" Canvas.Top="538"/>
+        </Canvas>
+
+        <TextBlock  HorizontalAlignment="Left" VerticalAlignment="Bottom" Name="clickToStart" Canvas.Left="420" TextWrapping="Wrap" Text="Click anywhere to start" Canvas.Top="411" Height="146" Width="780" FontSize="72" Foreground="#FFF34141" Margin="0,0,0,0" Grid.Row="1"/>
         <TextBlock x:Name="gameOverText" TextWrapping="Wrap" Text="GAME OVER" FontSize="72" Foreground="#FFF34141" Margin="69,59,889,489" Grid.Row="1" Visibility="Collapsed"/>
-        <Canvas Name="nextPieceCanvas" HorizontalAlignment="Left" Height="100" Margin="457,39,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+        
 
 
         <VisualStateManager.VisualStateGroups>

@@ -249,7 +249,14 @@ namespace MultiplayerTetris.Tetris
                         r.Height = 30;
                         r.Width = 30;
                         r.Fill = imgBrush;
-                        r.Margin = new Thickness(30 * col, 30 * row, 0, 0);
+                        if (type == 1 || type == 4 || type == 6)
+                            col--;
+                        if (type == 3)
+                        {
+                            col--;
+                            row++;
+                        }
+                        r.Margin = new Thickness(30 * col+10, 30 * (row-1)+10, 0, 0);
                         canvas2.Children.Add(r);
                     }
                 }
