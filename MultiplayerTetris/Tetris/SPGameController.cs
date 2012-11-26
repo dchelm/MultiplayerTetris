@@ -26,7 +26,7 @@ namespace MultiplayerTetris.Tetris
                                  new Uri("ms-appx:///Assets/Blocks/YellowBlock.png"),
                              };
         private int[] linesToPoints = { 100, 300, 500, 800 };
-        private int level = 0;
+        private int level = 9;
         private int lines = 0;
         private int points = 0;
         private int rows = 20;
@@ -52,8 +52,9 @@ namespace MultiplayerTetris.Tetris
             this.board = new Board(rows, cols);
             p = new Piece(ran.Next(0,7),0,4);
             nextP = new Piece(ran.Next(0, 7), 0, 4);
+            this.draw();
             this.drawNext();
-
+            this.linesUpdate(0);
         }
 
         //cuando una piesa cae.. antes de chequear lineas hay que agregarla al mapa :).. 
@@ -82,7 +83,8 @@ namespace MultiplayerTetris.Tetris
 
         private void linesUpdate(int rows)
         {
-            this.points += linesToPoints[rows - 1] * (level + 1);
+            if(rows>0)
+                this.points += linesToPoints[rows - 1] * (level + 1);
             this.lines += rows;
             ((TextBlock)tsp.FindName("levelText")).Text =  "Level : 0";
             ((TextBlock)tsp.FindName("linesText")).Text =  "Lines : "+lines.ToString();
