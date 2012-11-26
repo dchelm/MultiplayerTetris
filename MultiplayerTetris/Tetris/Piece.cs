@@ -54,10 +54,10 @@ namespace MultiplayerTetris
                     piece[0, 1, 2] = 1;    piece[1, 1, 2] = 1;    piece[2, 1, 2] = 1;    piece[3, 1, 2] = 1;
                     break;                                                                   
                 case 4:           //s                                                    
-                    piece[0, 1, 3] = 1;    piece[1, 0, 1] = 1;    piece[0, 1, 3] = 1;    piece[1, 0, 1] = 1;    
-                    piece[0, 1, 2] = 1;    piece[1, 1, 1] = 1;    piece[0, 1, 2] = 1;    piece[1, 1, 1] = 1;    
-                    piece[0, 2, 2] = 1;    piece[1, 1, 2] = 1;    piece[0, 2, 2] = 1;    piece[1, 1, 2] = 1;    
-                    piece[0, 2, 1] = 1;    piece[1, 2, 2] = 1;    piece[0, 2, 1] = 1;    piece[1, 2, 2] = 1;    
+                    piece[0, 1, 3] = 1;    piece[1, 0, 1] = 1;    piece[2, 1, 3] = 1;    piece[3, 0, 1] = 1;    
+                    piece[0, 1, 2] = 1;    piece[1, 1, 1] = 1;    piece[2, 1, 2] = 1;    piece[3, 1, 1] = 1;    
+                    piece[0, 2, 2] = 1;    piece[1, 1, 2] = 1;    piece[2, 2, 2] = 1;    piece[3, 1, 2] = 1;    
+                    piece[0, 2, 1] = 1;    piece[1, 2, 2] = 1;    piece[2, 2, 1] = 1;    piece[3, 2, 2] = 1;    
                     break;                                                                  
                 case 5:         //t                                                      
                     piece[0, 1, 0] = 1;    piece[1, 0, 1] = 1;    piece[2, 0, 1] = 1;    piece[3, 0, 1] = 1;
@@ -66,10 +66,10 @@ namespace MultiplayerTetris
                     piece[0, 2, 1] = 1;    piece[1, 2, 1] = 1;    piece[2, 1, 2] = 1;    piece[3, 2, 1] = 1;
                     break;                                                                   
                 case 6:             //z                                                  
-                    piece[0, 1, 1] = 1;    piece[1, 0, 2] = 1;    piece[0, 1, 1] = 1;    piece[1, 0, 2] = 1;    
-                    piece[0, 1, 2] = 1;    piece[1, 1, 1] = 1;    piece[0, 1, 2] = 1;    piece[1, 1, 1] = 1;    
-                    piece[0, 2, 2] = 1;    piece[1, 1, 2] = 1;    piece[0, 2, 2] = 1;    piece[1, 1, 2] = 1;    
-                    piece[0, 2, 3] = 1;    piece[1, 2, 1] = 1;    piece[0, 2, 3] = 1;    piece[1, 2, 1] = 1;    
+                    piece[0, 1, 1] = 1;    piece[1, 0, 2] = 1;    piece[2, 1, 1] = 1;    piece[3, 0, 2] = 1;    
+                    piece[0, 1, 2] = 1;    piece[1, 1, 1] = 1;    piece[2, 1, 2] = 1;    piece[3, 1, 1] = 1;    
+                    piece[0, 2, 2] = 1;    piece[1, 1, 2] = 1;    piece[2, 2, 2] = 1;    piece[3, 1, 2] = 1;    
+                    piece[0, 2, 3] = 1;    piece[1, 2, 1] = 1;    piece[2, 2, 3] = 1;    piece[3, 2, 1] = 1;    
                     break;
             }
         }
