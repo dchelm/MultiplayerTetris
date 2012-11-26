@@ -84,9 +84,9 @@ namespace MultiplayerTetris.Tetris
         {
             this.points += linesToPoints[rows - 1] * (level + 1);
             this.lines += rows;
-            ((TextBlock)tsp.FindName("levelText")).Text = "level 0";
-            ((TextBlock)tsp.FindName("linesText")).Text = "level "+lines.ToString();
-            ((TextBlock)tsp.FindName("pointsText")).Text = "level " + points.ToString();
+            ((TextBlock)tsp.FindName("levelText")).Text =  "Level : 0";
+            ((TextBlock)tsp.FindName("linesText")).Text =  "Lines : "+lines.ToString();
+            ((TextBlock)tsp.FindName("pointsText")).Text = "Points :" + points.ToString();
         }
 
         public void key(Windows.System.VirtualKey e)
