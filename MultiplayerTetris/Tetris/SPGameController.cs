@@ -42,16 +42,20 @@ namespace MultiplayerTetris.Tetris
         private Canvas canvas2;
         private MultiplayerTetris.TetrisSinglePlayer tsp;
         private MediaElement snd;
+        private bool gameOverBool = false;
+        private int actions = 0;
+        private long totalTicks;
 
         public SPGameController(MultiplayerTetris.TetrisSinglePlayer tsp,int level)
         {
+            totalTicks = 0;
             this.level = level;
             this.tsp = tsp;
             this.canvas = (Canvas)tsp.FindName("canvasBoard");
             this.canvas2 = (Canvas)tsp.FindName("nextPieceCanvas");
             this.board = new Board(rows, cols);
-            p = new Piece(ran.Next(0,7),-1,4);
             nextP = new Piece(ran.Next(0, 7), -1, 4);
+            this.newPiece();
             this.draw();
             this.drawNext();
             this.linesUpdate(0);
@@ -121,6 +125,7 @@ namespace MultiplayerTetris.Tetris
             switch (e)
             {
                 case Windows.System.VirtualKey.Space:
+                    actions++;
                     Piece proj = this.board.projection(p);
                     this.points += 2*(proj.getRow()-p.getRow());
                     ((TextBlock)tsp.FindName("pointsText")).Text = "Points :" + points.ToString();
@@ -130,20 +135,21 @@ namespace MultiplayerTetris.Tetris
                     //this.moveDown();
                     break;
                 case Windows.System.VirtualKey.Up:
+                    actions++;
                     p.rotate_right();
-                    if (this.board.intersects(p, 0, 0))//choca despues de intersectar
+                    if (this.board.intersectsAndOutOfBounds(p, 0, 0))//choca despues de intersectar
                     {
-                        if (!this.board.intersects(p, -1, 0))
+                        if (!this.board.intersectsAndOutOfBounds(p, -1, 0))
                         {
                             p.moveLeft();
                             break;
                         }
-                        else if (!this.board.intersects(p, 1, 0))
+                        else if (!this.board.intersectsAndOutOfBounds(p, 1, 0))
                         {
                             p.moveRight();
                             break;
                         }
-                        else if (!this.board.intersects(p, 2, 0))
+                        else if (!this.board.intersectsAndOutOfBounds(p, 2, 0))
                         {
                             p.moveRight();
                             p.moveRight();
@@ -153,17 +159,20 @@ namespace MultiplayerTetris.Tetris
                     }
                     break;
                 case Windows.System.VirtualKey.Down:
+                    actions++;
                     this.points += 1;
                     ((TextBlock)tsp.FindName("pointsText")).Text = "Points :" + this.points.ToString();
                     this.moveDown();
                     this.ticks = 0;
                     break;
                 case Windows.System.VirtualKey.Left:
-                    if (!this.board.intersects(p,-1,0))
+                    actions++;
+                    if (!this.board.intersectsAndOutOfBounds(p, -1, 0))
                         p.moveLeft();
                     break;
                 case Windows.System.VirtualKey.Right:
-                    if (!this.board.intersects(p, 1, 0))
+                    actions++;
+                    if (!this.board.intersectsAndOutOfBounds(p, 1, 0))
                         p.moveRight();
                     break;
                 case Windows.System.VirtualKey.Shift:
@@ -174,6 +183,8 @@ namespace MultiplayerTetris.Tetris
 
         public void tick()
         {
+            this.updateTime();
+            totalTicks++;
             ticks ++;
             if(ticks>= ticksPerLevel[level])
             {
@@ -190,6 +201,22 @@ namespace MultiplayerTetris.Tetris
             this.drawPiece(p,false);
         }
 
+        private void updateTime()
+        {
+            TimeSpan ts =  tsp.getTime();
+            ((TextBlock)tsp.FindName("timeText")).Text = new DateTime(ts.Ticks).ToString("HH:mm:ss");
+            if (ts.TotalSeconds > 10)
+            {
+                ((TextBlock)tsp.FindName("apmText")).Text = "APM : " + ((int)((double)actions / (double)ts.TotalMinutes)).ToString();
+            }
+            else
+            {
+                ((TextBlock)tsp.FindName("apmText")).Text = "";
+            }
+
+
+        }
+
         private void update()
         {
             this.moveDown();
@@ -197,22 +224,51 @@ namespace MultiplayerTetris.Tetris
 
         private void moveDown()
         {
-            if (board.intersects(p,0,1))
+            this.ticks = 0;
+            if (board.intersectsAndOutOfBounds(p, 0, 1))
             {
-                if (!board.addPiece(p))//game over
-                {
-                    tsp.gameOver();
-                }
+                if (board.addPiece(p))
+                    this.gameOver() ;
                 this.checkLines(p.getRow());
-                this.p = nextP;
-                this.nextP = new Piece(ran.Next(0, 7), -1, 4);
-                this.drawNext();
+                this.newPiece();
             }else
                 p.moveDown();
         }
 
+        private void gameOver()
+        {
+            this.gameOverBool = true;
+            tsp.gameOver();
+            canvas.Children.Clear();
+            canvas2.Children.Clear();
+            for (int i = 0; i < rows; i++)
+                for (int j = 0; j < cols; j++)
+                {
+                    ImageBrush imgBrush = new ImageBrush();
+                    BitmapImage image = new BitmapImage(uris[ran.Next(0,7)]);
+                    imgBrush.ImageSource = image;
+                    Rectangle r = new Rectangle();
+                    r.Height = 30;
+                    r.Width = 30;
+                    r.Fill = imgBrush;
+                    r.Margin = new Thickness(30 * j, 30 * i, 0, 0);
+                    canvas.Children.Add(r);
+                }
+        }
+
+        private void newPiece()
+        {
+            this.p = nextP;
+            if (board.intersects(p,0,0))
+                this.gameOver();
+            this.nextP = new Piece(ran.Next(0, 7), -2, 4);
+            this.drawNext();
+        }
+
         private void drawBoard()
         {
+            if (this.gameOverBool)
+                return;
             canvas.Children.Clear();
             //green when good red when fucked
             //green 66 223 49
@@ -260,7 +316,8 @@ namespace MultiplayerTetris.Tetris
 
         private void drawPiece(Piece p,bool projection)
         {
-            SolidColorBrush scb = new SolidColorBrush(Color.FromArgb(40, 0, 0, 0));
+            if (this.gameOverBool)
+                return;
             //draw piece
             for (int i = 0; i < 4; i++)
                 for (int j = 0; j < 4; j++)
@@ -278,10 +335,9 @@ namespace MultiplayerTetris.Tetris
                             Rectangle r = new Rectangle();
                             r.Height = 30;
                             r.Width = 30;
-                            if (!projection)
-                                r.Fill = imgBrush;
-                            else
-                                r.Fill = scb;
+                            if (projection)
+                                imgBrush.Opacity = .3;
+                            r.Fill = imgBrush;
                             r.Margin = new Thickness(30 * col, 30 * row, 0, 0);
                             canvas.Children.Add(r);
                         }
@@ -291,6 +347,8 @@ namespace MultiplayerTetris.Tetris
 
         private void drawNext()
         {
+            if (this.gameOverBool)
+                return;
             canvas2.Children.Clear();
             for (int i = 0; i < 4; i++)
                 for (int j = 0; j < 4; j++)

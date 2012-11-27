@@ -48,7 +48,9 @@
             <TextBlock x:Name="linesText" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Text="Lines" VerticalAlignment="Top" Height="32" Width="230" FontSize="20" Canvas.Left="336" Canvas.Top="192"/>
             <TextBlock x:Name="pointsText" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Text="Points" VerticalAlignment="Top" Height="32" Width="230" FontSize="20" Canvas.Left="336" Canvas.Top="232"/>
             <Button x:Name="drop" Content="Drop" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="74" Height="72" Click="drop_Click" Canvas.Left="336" Canvas.Top="538"/>
-            <TextBlock x:Name="comboText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Points" VerticalAlignment="Top" Height="32" Width="230" FontSize="20" Canvas.Left="336" Canvas.Top="269"/>
+            <TextBlock x:Name="comboText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Combo" VerticalAlignment="Top" Height="32" Width="230" FontSize="20" Canvas.Left="336" Canvas.Top="269"/>
+            <TextBlock x:Name="timeText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" Height="32" Width="230" FontSize="20" Canvas.Left="336" Canvas.Top="306"/>
+            <TextBlock x:Name="apmText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="32" Width="230" FontSize="20" Canvas.Left="336" Canvas.Top="338"/>
         </Canvas>
         <TextBlock x:Name="gameOverText" TextWrapping="Wrap" Text="GAME OVER" FontSize="72" Foreground="#FFF34141" Margin="69,59,889,489" Grid.Row="1" Visibility="Collapsed"/>
         <Canvas HorizontalAlignment="Right" Height="326" VerticalAlignment="Top" Width="315" Grid.RowSpan="2">
