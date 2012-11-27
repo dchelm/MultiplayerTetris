@@ -106,15 +106,17 @@ namespace MultiplayerTetris.Tetris
 
         public void lines(List<int> lines)
         {
-            //para mejorar el rendimiento podemos partir desde el row mas chico... por como esta construido lines la mas chica esta al final
             int displacement = 1;
-            for (int i = lines[lines.Count-1]-1; i >= 0; i--)
+            for (int i = lines[lines.Count-1]-1; i >= this.highest; i--)
             {
                 if (lines.Contains(i))
                     displacement++;
                 else
                     for (int col = 0; col < cols; col++)
+                    {
                         board[i + displacement, col] = board[i, col];
+                        board[i, col] = -1;
+                    }
             }
             highest += lines.Count;
         }
