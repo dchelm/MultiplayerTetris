@@ -35,12 +35,14 @@
             </Grid.ColumnDefinitions>
             <Button x:ConnectionId='3' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="Tetris" Style="{StaticResource PageHeaderTextStyle}"/>
-            <TextBlock x:Name="pageTitle_Copy" Grid.Column="1" Text="Twin gaming" Style="{StaticResource PageHeaderTextStyle}" Margin="833,0,113,-599"/>
         </Grid>
-        <Button x:ConnectionId='1' Content="Single Player&#xD;&#xA;" HorizontalAlignment="center" Margin="0,450,0,0" Grid.Row="1" VerticalAlignment="Top" Width="471" Height="38"                       />
-        <Button x:ConnectionId='2' Content="Multi Player&#xA;" HorizontalAlignment="center" Margin="0,500,0,0" Grid.Row="1" VerticalAlignment="Top" Width="471" Height="38"                       />
+        <TextBlock HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="pageTitle_Copy" Text="Twin gaming" Style="{StaticResource PageHeaderTextStyle}" Margin="0,0,30,30" Grid.Row="1"/>
         <TextBlock HorizontalAlignment="Left" Margin="39,36,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Player Name" VerticalAlignment="Top" Height="63" Width="560" FontSize="48"/>
-        <TextBlock HorizontalAlignment="Left" Margin="39,104,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Level" VerticalAlignment="Top" Height="32" Width="376" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="39,104,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Statistics" VerticalAlignment="Top" Height="32" Width="376" FontSize="20"/>
+        <Canvas HorizontalAlignment="center" Height="331" Margin="0,0,0,150" Grid.Row="1" VerticalAlignment="Bottom" Width="367">
+            <Button x:ConnectionId='1' Content="Single Player" HorizontalAlignment="center" Grid.Row="1" VerticalAlignment="Top" Width="338" Height="152"                        Canvas.Left="19" Canvas.Top="7"/>
+            <Button x:ConnectionId='2' Content="Multi Player" HorizontalAlignment="center" Grid.Row="1" VerticalAlignment="Top" Width="338" Height="152"                        Canvas.Left="19" Canvas.Top="169"/>
+        </Canvas>
 
         <VisualStateManager.VisualStateGroups>
 
@@ -51,6 +53,7 @@
 
                 <!-- The entire page respects the narrower 100-pixel margin convention for portrait -->
                 <VisualState x:Name="FullScreenPortrait">
+                    
                     <Storyboard>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PortraitBackButtonStyle}"/>

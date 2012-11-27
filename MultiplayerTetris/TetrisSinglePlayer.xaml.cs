@@ -21,6 +21,7 @@ namespace MultiplayerTetris
     /// </summary>
     public sealed partial class TetrisSinglePlayer : MultiplayerTetris.Common.LayoutAwarePage
     {
+        int level = 0;
         DispatcherTimer timer;
         Tetris.SPGameController gc;
         int state = 0; //0 = pageLoad... 1= paused... 2 = playing...3 = ended
@@ -55,28 +56,37 @@ namespace MultiplayerTetris
 
         private void Grid_PointerPressed_1(object sender, PointerRoutedEventArgs e)
         {
+            /*
             if (state == 0)
             {
                 state = 2;
                 timer.Start();
-                ((TextBlock)this.FindName("clickToStart")).Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                ((Button)this.FindName("pauseButton")).Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                ((Button)this.FindName("restartButton")).Content = "Start";
             }
+             * */
         }
 
         private void pageRoot_Loaded(object sender, RoutedEventArgs e)
         {
-            gc = new Tetris.SPGameController(this);
-
+            if (state == 0)
+            {
+                gc = new Tetris.SPGameController(this,level);
+                ((Button)this.FindName("pauseButton")).Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                ((Button)this.FindName("restartButton")).Content = "Start";
+            }
+            ((TextBlock)this.FindName("levelText")).Text = "Level  : " + ((Slider)this.FindName("levelSlider")).Value.ToString();
             ((Button)this.FindName("drop")).Focus(Windows.UI.Xaml.FocusState.Programmatic);
             timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(100);
+            timer.Interval = TimeSpan.FromMilliseconds(70);
             timer.Tick += timer_Tick;
             Window.Current.Content.AddHandler(UIElement.KeyDownEvent, new KeyEventHandler(keyDownHandler), true);
         }
         public void gameOver()
         {
             this.state = 3;
-            ((TextBlock)this.FindName("gameOverText")).Visibility = Windows.UI.Xaml.Visibility.Visible;
+            ((Button)this.FindName("pauseButton")).Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            ((Button)this.FindName("restartButton")).Content = "Start";
         }
 
         void keyDownHandler(object sender, KeyRoutedEventArgs e)
@@ -87,7 +97,8 @@ namespace MultiplayerTetris
             {
                 state = 2;
                 timer.Start();
-                ((TextBlock)this.FindName("clickToStart")).Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                ((Button)this.FindName("pauseButton")).Visibility = Windows.UI.Xaml.Visibility.Visible;
+                ((Button)this.FindName("restartButton")).Content = "Restart";
             }
         }
         void timer_Tick(object sender, object e)
@@ -114,16 +125,50 @@ namespace MultiplayerTetris
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             ((Button)this.FindName("drop")).Focus(Windows.UI.Xaml.FocusState.Programmatic);
-            gc = new Tetris.SPGameController(this);
-            state = 0;
-            ((TextBlock)this.FindName("gameOverText")).Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            ((TextBlock)this.FindName("clickToStart")).Visibility = Windows.UI.Xaml.Visibility.Visible;
+            if(state == 0)
+            {
+                state = 2;
+                timer.Start();
+                ((Button)this.FindName("pauseButton")).Visibility = Windows.UI.Xaml.Visibility.Visible;
+                ((Button)this.FindName("restartButton")).Content = "Restart";
+            }
+            else if (state == 2)
+            {
+                gc = new Tetris.SPGameController(this, level);
+                state = 0;
+                ((Button)this.FindName("pauseButton")).Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                ((Button)this.FindName("restartButton")).Content = "Start";
+            }
+            else if (state == 3)
+            {
+                gc = new Tetris.SPGameController(this, level);
+                state = 2;
+                timer.Start();
+                ((Button)this.FindName("pauseButton")).Visibility = Windows.UI.Xaml.Visibility.Visible;
+                ((Button)this.FindName("restartButton")).Content = "Restart";
+            }
         }
 
         private void drop_Click(object sender, RoutedEventArgs e)
         {
             if (state == 2)
                 gc.key(Windows.System.VirtualKey.Down);
+        }
+
+        private void levelSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            TextBlock tb = ((TextBlock)this.FindName("levelText"));
+            if (tb!= null)
+            {
+                level = (int)e.NewValue-1;
+                tb.Text = "Level  : " + (level+1);
+                gc.changeLevel(level);
+                ((Button)this.FindName("drop")).Focus(Windows.UI.Xaml.FocusState.Programmatic);
+            }
+        }
+
+        private void GoBack(object sender, RoutedEventArgs e)
+        {
         }
 
     }

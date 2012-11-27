@@ -146,6 +146,7 @@
     <Content Include="Assets\Blocks\YellowBlock.png" />
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\SmallLogo.png" />
+    <Content Include="Assets\Sounds\Combo.mp3" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Common\ReadMe.txt" />

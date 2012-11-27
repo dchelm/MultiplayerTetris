@@ -13,108 +13,112 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-11-25T23:00:43.891</Modified>
+      <Modified>2012-11-26T21:17:40.503</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\MultiplayerTetris.exe">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\MultiplayerTetris.exe">
       <PackagePath>MultiplayerTetris.exe</PackagePath>
-      <Modified>2012-11-26T13:12:19.883</Modified>
+      <Modified>2012-11-26T21:51:41.805</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\MultiplayerTetris.pdb">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\MultiplayerTetris.pdb">
       <PackagePath>MultiplayerTetris.pdb</PackagePath>
-      <Modified>2012-11-26T13:12:19.858</Modified>
+      <Modified>2012-11-26T21:51:41.783</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\Blocks.png">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\Blocks.png">
       <PackagePath>Assets\Blocks\Blocks.png</PackagePath>
       <Modified>2012-11-25T22:02:32.395</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\BlueBlock.png">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\BlueBlock.png">
       <PackagePath>Assets\Blocks\BlueBlock.png</PackagePath>
       <Modified>2012-11-25T22:51:16.723</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\BrownBlock.png">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\BrownBlock.png">
       <PackagePath>Assets\Blocks\BrownBlock.png</PackagePath>
       <Modified>2012-11-25T22:53:17.524</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\CyanBlock.png">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\CyanBlock.png">
       <PackagePath>Assets\Blocks\CyanBlock.png</PackagePath>
       <Modified>2012-11-25T22:51:56.202</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\DarkBlueBlock.png">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\DarkBlueBlock.png">
       <PackagePath>Assets\Blocks\DarkBlueBlock.png</PackagePath>
       <Modified>2012-11-25T22:52:57.835</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\GreenBlock.png">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\GreenBlock.png">
       <PackagePath>Assets\Blocks\GreenBlock.png</PackagePath>
       <Modified>2012-11-25T22:51:42.281</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\OrangeBlock.png">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\OrangeBlock.png">
       <PackagePath>Assets\Blocks\OrangeBlock.png</PackagePath>
       <Modified>2012-11-25T22:52:14.250</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\PinkBlock.png">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\PinkBlock.png">
       <PackagePath>Assets\Blocks\PinkBlock.png</PackagePath>
       <Modified>2012-11-25T22:53:45.913</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\RedBlock.png">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\RedBlock.png">
       <PackagePath>Assets\Blocks\RedBlock.png</PackagePath>
       <Modified>2012-11-25T22:52:36.236</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\YellowBlock.png">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\YellowBlock.png">
       <PackagePath>Assets\Blocks\YellowBlock.png</PackagePath>
       <Modified>2012-11-25T22:53:33.353</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Logo.png">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Logo.png">
       <PackagePath>Assets\Logo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2012-03-16T04:42:52.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\SmallLogo.png">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\SmallLogo.png">
       <PackagePath>Assets\SmallLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2012-03-16T04:42:52.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\SplashScreen.png">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\SplashScreen.png">
       <PackagePath>Assets\SplashScreen.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2012-03-16T04:42:52.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2012-03-16T04:42:52.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Common\ReadMe.txt">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Sounds\Combo.mp3">
+      <PackagePath>Assets\Sounds\Combo.mp3</PackagePath>
+      <Modified>2012-11-26T21:03:44.013</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Common\ReadMe.txt">
       <PackagePath>Common\ReadMe.txt</PackagePath>
       <Modified>2012-11-25T14:25:15.387</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\App.xaml">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
       <Modified>2012-11-25T14:24:46.809</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\Common\StandardStyles.xaml">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\Common\StandardStyles.xaml">
       <PackagePath>Common\StandardStyles.xaml</PackagePath>
       <Modified>2012-06-27T00:19:20.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\MainPage.xaml">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\MainPage.xaml">
       <PackagePath>MainPage.xaml</PackagePath>
-      <Modified>2012-11-25T19:19:13.865</Modified>
+      <Modified>2012-11-26T19:23:59.522</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\TetrisMultiPlayer.xaml">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\TetrisMultiPlayer.xaml">
       <PackagePath>TetrisMultiPlayer.xaml</PackagePath>
       <Modified>2012-11-25T14:42:59.656</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\TetrisSinglePlayer.xaml">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\TetrisSinglePlayer.xaml">
       <PackagePath>TetrisSinglePlayer.xaml</PackagePath>
-      <Modified>2012-11-26T13:10:40.299</Modified>
+      <Modified>2012-11-26T21:51:39.036</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dnshe_000\Documents\Visual Studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2012-11-25T23:00:43.409</Modified>
+      <Modified>2012-11-26T21:17:40.391</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

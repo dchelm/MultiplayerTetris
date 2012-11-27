@@ -28,6 +28,8 @@
         </Grid.RowDefinitions>
 
         <!-- Back button and page title -->
+
+        <!-- Back button and page title -->
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -38,22 +40,31 @@
             	<Run Text="Single Player"/>
             	<LineBreak/>
             	<Run/>
-            </TextBlock>
-            <Button Name="pauseButton" Content="Pause" Grid.Column="1" HorizontalAlignment="Left" Margin="976,10,0,0" VerticalAlignment="Top" Height="120" Width="116" Click="Button_Click_1"/>
-            <Button Name="restartButton" Content="Restart" Grid.Column="1" HorizontalAlignment="Left" Margin="1097,10,0,0" VerticalAlignment="Top" Height="120" Width="116" Click="Button_Click_2"/>
-        </Grid>
+            </TextBlock></Grid>
 
-        <Canvas Name="gameRegion" HorizontalAlignment="Center" Height="631" Margin="447,69,330,68" Width="589" Grid.RowSpan="2" VerticalAlignment="Center" Background="#FF3E3E3E">
+        <Canvas x:Name="gameRegion" HorizontalAlignment="Center" Height="631" Margin="447,69,330,68" Width="589" Grid.RowSpan="2" VerticalAlignment="Center" Background="#FF3E3E3E">
             <Canvas x:Name="canvasBoard" HorizontalAlignment="Left" Height="600" Grid.Row="1" VerticalAlignment="Top" Width="300" Background="White" Canvas.Left="11" Canvas.Top="10"/>
-            <Canvas Name="nextPieceCanvas" HorizontalAlignment="Left" Height="80" Grid.Row="1" VerticalAlignment="Top" Width="140" Canvas.Left="336" Canvas.Top="10"/>
-            <TextBlock Name="levelText" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Text="Level " VerticalAlignment="Top" Height="32" Width="230" FontSize="20" Canvas.Left="336" Canvas.Top="152"/>
-            <TextBlock Name="linesText" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Text="Lines" VerticalAlignment="Top" Height="32" Width="230" FontSize="20" Canvas.Left="336" Canvas.Top="192"/>
-            <TextBlock Name="pointsText" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Text="Points" VerticalAlignment="Top" Height="32" Width="230" FontSize="20" Canvas.Left="336" Canvas.Top="232"/>
-            <Button Name="drop" Content="Drop" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="74" Height="72" Click="drop_Click" Canvas.Left="336" Canvas.Top="538"/>
+            <Canvas x:Name="nextPieceCanvas" HorizontalAlignment="Left" Height="80" Grid.Row="1" VerticalAlignment="Top" Width="140" Canvas.Left="336" Canvas.Top="10"/>
+            <TextBlock x:Name="linesText" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Text="Lines" VerticalAlignment="Top" Height="32" Width="230" FontSize="20" Canvas.Left="336" Canvas.Top="192"/>
+            <TextBlock x:Name="pointsText" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Text="Points" VerticalAlignment="Top" Height="32" Width="230" FontSize="20" Canvas.Left="336" Canvas.Top="232"/>
+            <Button x:Name="drop" Content="Drop" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="74" Height="72" Click="drop_Click" Canvas.Left="336" Canvas.Top="538"/>
+            <TextBlock x:Name="comboText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Points" VerticalAlignment="Top" Height="32" Width="230" FontSize="20" Canvas.Left="336" Canvas.Top="269"/>
         </Canvas>
-
-        <TextBlock  HorizontalAlignment="Left" VerticalAlignment="Bottom" Name="clickToStart" Canvas.Left="420" TextWrapping="Wrap" Text="Click anywhere to start" Canvas.Top="411" Height="146" Width="780" FontSize="72" Foreground="#FFF34141" Margin="0,0,0,0" Grid.Row="1"/>
         <TextBlock x:Name="gameOverText" TextWrapping="Wrap" Text="GAME OVER" FontSize="72" Foreground="#FFF34141" Margin="69,59,889,489" Grid.Row="1" Visibility="Collapsed"/>
+        <Canvas HorizontalAlignment="Right" Height="326" VerticalAlignment="Top" Width="315" Grid.RowSpan="2">
+            <Button x:Name="pauseButton" Content="Pause" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Width="116" Click="Button_Click_1" Canvas.Left="31" Canvas.Top="10"/>
+            <Button x:Name="restartButton" Content="Restart" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Width="116" Click="Button_Click_2" Canvas.Left="172" Canvas.Top="10"/>
+            <TextBlock x:Name="levelText" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Text="Level " VerticalAlignment="Top" Height="32" Width="230" FontSize="20" Canvas.Left="10" Canvas.Top="224"/>
+            <Slider x:Name="levelSlider" HorizontalAlignment="right" Margin="0,0,0,0" VerticalAlignment="Top" Width="295" Grid.RowSpan="10" Canvas.Left="10" Canvas.Top="256" ValueChanged="levelSlider_ValueChanged" Maximum="10" Minimum="1" TickFrequency="1"/>
+        </Canvas>
+        <Popup x:Name="popUp" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,628" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+        	<Popup.Transitions>
+        		<TransitionCollection>
+        			<EntranceThemeTransition FromHorizontalOffset="3134"/>
+        		</TransitionCollection>
+        	</Popup.Transitions>
+        	<Grid  Background="#FFE5E5E5" Height="327" Width="1366" VerticalAlignment="Top" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" CacheMode="BitmapCache"/>
+        </Popup>
         
 
 

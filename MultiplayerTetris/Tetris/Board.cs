@@ -11,10 +11,11 @@ namespace MultiplayerTetris.Tetris
         private int[,] board;
         private int rows;
         private int cols;
-        private int highest = 30;//records tallest row
+        private int highest;//records tallest row
 
         public Board(int rows, int cols)
         {
+            this.highest = rows;
             this.rows = rows;
             this.cols = cols;
             this.board = new int[rows,cols];
@@ -33,9 +34,9 @@ namespace MultiplayerTetris.Tetris
                     int row = p.getRow() + i + dispRow ;
                     bool filled = p.getPiece()[i,j]==1?true:false;
                     if (filled)
-                        if (row < rows && row >= 0 && col < cols && col >= 0)
+                        if (row < rows && col < cols && col >= 0)
                         {
-                            if (board[row, col] != -1)
+                            if (row>0 && board[row, col] != -1)
                             {
                                 return true;
                             }
@@ -106,6 +107,11 @@ namespace MultiplayerTetris.Tetris
                 }
             }
             return new Piece(p.type, 3, p.getRow());
+        }
+
+        public int getHighest()
+        {
+            return this.highest;
         }
 
     }
