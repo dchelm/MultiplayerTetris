@@ -27,7 +27,7 @@ namespace MultiplayerTetris.Tetris
                              };
         private int[] linesToPoints = { 100, 300, 500, 800 };
         private int level;
-        private int lines = 0;
+        private int totalLines = 0;
         private int points = 0;
         private int rows = 20;
         private int cols = 10;
@@ -45,17 +45,24 @@ namespace MultiplayerTetris.Tetris
         private bool gameOverBool = false;
         private int actions = 0;
         private long totalTicks;
+        private int tetris = 0;
+        private GoalController goalController;
+        private int totalApm = 0;
+        private int min = 0;
+        private int highestTotalAPM = 0;
 
-        public SPGameController(MultiplayerTetris.TetrisSinglePlayer tsp,int level)
+        public SPGameController(MultiplayerTetris.TetrisSinglePlayer tsp, int level, GoalController goalController)
         {
             totalTicks = 0;
             this.level = level;
             this.tsp = tsp;
+            this.goalController = goalController;
             this.canvas = (Canvas)tsp.FindName("canvasBoard");
             this.canvas2 = (Canvas)tsp.FindName("nextPieceCanvas");
             this.board = new Board(rows, cols);
             nextP = new Piece(ran.Next(0, 7), -1, 4);
             this.newPiece();
+            this.updateGoals();
             this.draw();
             this.drawNext();
             this.linesUpdate(0);
@@ -109,14 +116,24 @@ namespace MultiplayerTetris.Tetris
             }
         }
 
-        private void linesUpdate(int rows)
+        private void updateGoals()
         {
-            if(rows>0)
-                this.points += linesToPoints[rows - 1] * (level + 1);
-            this.lines += rows;
+            goalController.updatePending(totalLines, totalApm, tetris, min, combo);
+        }
+
+        private void linesUpdate(int lines)
+        {
+            if (lines > 0)
+            {
+                if (lines == 4)
+                    this.tetris++;
+                this.points += linesToPoints[lines - 1] * (this.level + 1);
+            }
+            this.totalLines += lines;
+            this.updateGoals();
             ((TextBlock)tsp.FindName("levelText")).Text = "Level  : " + this.level;
-            ((TextBlock)tsp.FindName("linesText")).Text =  "Lines  : " + lines.ToString();
-            ((TextBlock)tsp.FindName("pointsText")).Text = "Points : " + points.ToString();
+            ((TextBlock)tsp.FindName("linesText")).Text =  "Lines  : " + this.totalLines.ToString();
+            ((TextBlock)tsp.FindName("pointsText")).Text = "Points : " + this.points.ToString();
             ((TextBlock)tsp.FindName("comboText")).Text =  "Combo  : " + this.combo.ToString();
         }
 
@@ -204,21 +221,19 @@ namespace MultiplayerTetris.Tetris
         private void updateTime()
         {
             TimeSpan ts =  tsp.getTime();
+            if (this.min < (int)ts.TotalMinutes)
+            {
+                this.min = (int)ts.TotalMinutes;
+                this.updateGoals();
+            }
             ((TextBlock)tsp.FindName("timeText")).Text = new DateTime(ts.Ticks).ToString("HH:mm:ss");
-            if (ts.TotalSeconds > 10)
-            {
-                ((TextBlock)tsp.FindName("apmText")).Text = "APM : " + ((int)((double)actions / (double)ts.TotalMinutes)).ToString();
-            }
-            else
-            {
-                ((TextBlock)tsp.FindName("apmText")).Text = "";
-            }
-
-
+            this.totalApm = ((int)((double)actions / (double)ts.TotalMinutes));
+            ((TextBlock)tsp.FindName("apmText")).Text = "APM : " + this.totalApm.ToString();
         }
 
         private void update()
         {
+            this.updateGoals();
             this.moveDown();
         }
 

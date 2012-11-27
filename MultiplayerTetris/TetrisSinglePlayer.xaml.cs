@@ -28,6 +28,7 @@ namespace MultiplayerTetris
         private Tetris.SPGameController gc;
         private int state = 0; //0 = pageLoad... 1= paused... 2 = playing...3 = ended
         private Stopwatch sw;
+        private Tetris.GoalController goalController;
 
         public TimeSpan getTime()
         {
@@ -77,6 +78,14 @@ namespace MultiplayerTetris
 
         private void pageRoot_Loaded(object sender, RoutedEventArgs e)
         {
+
+            TextBlock[] aux =   {
+                                    ((TextBlock)this.FindName("GoalText1")),
+                                    ((TextBlock)this.FindName("GoalText2")),
+                                    ((TextBlock)this.FindName("GoalText3")),
+                                    ((TextBlock)this.FindName("GoalText4")),
+                                };
+            goalController = new Tetris.GoalController(aux);
             sw = new Stopwatch();
             ((TextBlock)this.FindName("levelText")).Text = "Level  : " + ((Slider)this.FindName("levelSlider")).Value.ToString();
             ((Button)this.FindName("drop")).Focus(Windows.UI.Xaml.FocusState.Programmatic);
@@ -173,7 +182,7 @@ namespace MultiplayerTetris
         {
             sw.Stop();
             timer.Stop();
-            gc = new Tetris.SPGameController(this, level);
+            gc = new Tetris.SPGameController(this, level,goalController);
             state = 0;
             ((Button)this.FindName("pauseButton")).Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             ((Button)this.FindName("restartButton")).Content = "Start";

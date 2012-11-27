@@ -67,7 +67,13 @@
         	</Popup.Transitions>
         	<Grid  Background="#FFE5E5E5" Height="327" Width="1366" VerticalAlignment="Top" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" CacheMode="BitmapCache"/>
         </Popup>
-        
+        <Canvas HorizontalAlignment="Left" VerticalAlignment="Top" Height="408" Margin="0,0,0,0" Grid.Row="1" Width="442">
+            <TextBlock Name="GoalText1" Canvas.Left="10" TextWrapping="Wrap" Text="" Canvas.Top="19" FontFamily="Global User Interface" FontSize="36"/>
+            <TextBlock Name="GoalText2" Canvas.Left="39" TextWrapping="Wrap" Text="" Canvas.Top="67" FontFamily="Global User Interface" FontSize="20"/>
+            <TextBlock Name="GoalText3" Canvas.Left="39" TextWrapping="Wrap" Text="" Canvas.Top="96" FontFamily="Global User Interface" FontSize="20"/>
+            <TextBlock Name="GoalText4" Canvas.Left="39" TextWrapping="Wrap" Text="" Canvas.Top="129" FontFamily="Global User Interface" FontSize="20"/>
+        </Canvas>
+
 
 
         <VisualStateManager.VisualStateGroups>

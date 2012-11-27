@@ -116,6 +116,13 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tetris\Goals\GoalApm.cs" />
+    <Compile Include="Tetris\Goals\GoalTetris.cs" />
+    <Compile Include="Tetris\Goals\GoalCombo.cs" />
+    <Compile Include="Tetris\Goals\GoalMin.cs" />
+    <Compile Include="Tetris\Goals\GoalController.cs" />
+    <Compile Include="Tetris\Goals\GoalI.cs" />
+    <Compile Include="Tetris\Goals\GoalLine.cs" />
     <Compile Include="Tetris\Piece.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TetrisMultiPlayer.xaml.cs">
