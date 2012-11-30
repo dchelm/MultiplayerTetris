@@ -276,7 +276,7 @@ namespace MultiplayerTetris.Tetris
             this.p = nextP;
             if (board.intersects(p,0,0))
                 this.gameOver();
-            this.nextP = new Piece(ran.Next(0, 7), -2, 4);
+            this.nextP = new Piece(ran.Next(0, 7), -1, 4);
             this.drawNext();
         }
 

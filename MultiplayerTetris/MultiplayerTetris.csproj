@@ -151,6 +151,7 @@
     <Content Include="Assets\Blocks\PinkBlock.png" />
     <Content Include="Assets\Blocks\RedBlock.png" />
     <Content Include="Assets\Blocks\YellowBlock.png" />
+    <Content Include="Assets\WideLogo.png" />
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\Sounds\Combo.mp3" />

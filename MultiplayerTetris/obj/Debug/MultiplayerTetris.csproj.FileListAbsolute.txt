@@ -15,10 +15,6 @@ c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\Multi
 c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\obj\Debug\MainPage.xaml
 c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\obj\Debug\MultiplayerTetris.exe
 c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\obj\Debug\MultiplayerTetris.pdb
-c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\obj\Debug\priconfig.xml.intermediate
-c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\obj\Debug\layout.resfiles.intermediate
-c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\obj\Debug\resources.resfiles.intermediate
-c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\obj\Debug\pri.resfiles.intermediate
 c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\obj\Debug\priconfig.xml
 c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\obj\Debug\layout.resfiles
 c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\obj\Debug\resources.resfiles
@@ -31,3 +27,7 @@ c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\Multi
 c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\obj\Debug\TetrisMultiPlayer.g.i.cs
 c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\obj\Debug\TetrisMultiPlayer.g.cs
 c:\users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\obj\Debug\TetrisMultiPlayer.xaml
+C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\obj\Debug\priconfig.xml.intermediate
+C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\obj\Debug\layout.resfiles.intermediate
+C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\obj\Debug\resources.resfiles.intermediate
+C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\obj\Debug\pri.resfiles.intermediate

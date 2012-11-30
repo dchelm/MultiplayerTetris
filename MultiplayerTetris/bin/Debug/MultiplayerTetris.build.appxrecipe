@@ -49,6 +49,10 @@
     <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Blocks\YellowBlock.png">
       <PackagePath>Assets\Blocks\YellowBlock.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\WideLogo.png">
+      <PackagePath>Assets\WideLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dnshe_000\documents\visual studio 2012\Projects\MultiplayerTetris\MultiplayerTetris\Assets\Logo.png">
       <PackagePath>Assets\Logo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>

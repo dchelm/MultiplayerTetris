@@ -107,7 +107,7 @@ namespace MultiplayerTetris.Tetris
         public void lines(List<int> lines)
         {
             int displacement = 1;
-            for (int i = lines[lines.Count-1]-1; i >= this.highest; i--)
+            for (int i = lines[lines.Count-1]-1; i >= this.highest-1; i--)
             {
                 if (lines.Contains(i))
                     displacement++;

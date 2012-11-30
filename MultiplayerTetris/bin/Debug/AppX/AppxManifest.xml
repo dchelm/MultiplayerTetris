@@ -22,9 +22,9 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="MultiplayerTetris.exe" EntryPoint="MultiplayerTetris.App">
-      <VisualElements DisplayName="MultiplayerTetris" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="MultiplayerTetris" ForegroundText="light" BackgroundColor="#464646">
-        <DefaultTile ShowName="allLogos" />
-        <SplashScreen Image="Assets\SplashScreen.png" />
+      <VisualElements DisplayName="Tetris Chanllenge" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Tetris on a whole new level, gain exp, complete quests application" ForegroundText="light" BackgroundColor="green">
+        <DefaultTile ShowName="allLogos" WideLogo="Assets\WideLogo.png" />
+        <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="lightBlue" />
       </VisualElements>
     </Application>
   </Applications>
