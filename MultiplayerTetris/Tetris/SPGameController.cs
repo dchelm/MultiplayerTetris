@@ -27,6 +27,7 @@ namespace MultiplayerTetris.Tetris
                              };
         private int[] linesToPoints = { 100, 300, 500, 800 };
         private int level;
+        private int startingLevel;
         private int totalLines = 0;
         private int points = 0;
         private int rows = 20;
@@ -123,13 +124,18 @@ namespace MultiplayerTetris.Tetris
 
         private void linesUpdate(int lines)
         {
+            this.totalLines += lines;
             if (lines > 0)
             {
                 if (lines == 4)
                     this.tetris++;
                 this.points += linesToPoints[lines - 1] * (this.level + 1);
+                int newLevel = (int)(totalLines / 30) + startingLevel;
+                if (newLevel != level)
+                {
+                    this.changeLevel(newLevel);
+                }
             }
-            this.totalLines += lines;
             this.updateGoals();
             ((TextBlock)tsp.FindName("levelText")).Text = "Level  : " + this.level;
             ((TextBlock)tsp.FindName("linesText")).Text =  "Lines  : " + this.totalLines.ToString();
@@ -390,7 +396,11 @@ namespace MultiplayerTetris.Tetris
 
         public void changeLevel(int level)
         {
+            level = Math.Min(level, 9);
             this.level = level;
+            ((Slider)tsp.FindName("levelSlider")).Value = level;
+            ((TextBlock)tsp.FindName("levelText")).Text = "level: " + level.ToString();
+            ((TextBlock)tsp.FindName("levelText")).Visibility = Visibility.Visible;
             this.ticks = 0;
         }
 
